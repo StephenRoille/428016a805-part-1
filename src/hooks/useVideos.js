@@ -17,7 +17,6 @@ const useVideo = (defaultSearchTerm) => {
     setVideos(res.data.items)
     setIsLoading(false)
   }
-  console.log(videos)
   return [isLoading, videos, searchVideos]
 }
 
