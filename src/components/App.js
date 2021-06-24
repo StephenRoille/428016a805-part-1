@@ -1,8 +1,5 @@
 import React, { useState, useEffect } from "react"
 
-// apis
-import youtube from "../apis/youtube"
-
 // components
 import Footer from "./Footer"
 import SearchBar from "./SearchBar"
@@ -12,29 +9,22 @@ import VideoList from "./VideoList"
 
 // styles
 import "./App.css"
+// hooks
+import useVideo from "../hooks/useVideos"
 
 const App = () => {
-  const [videos, setVideos] = useState([])
+  const [isLoading, videos, setVideos] = useVideo("python")
   const [selectedVideo, setSelectedVideo] = useState(null)
-  const [isLoading, setIsLoading] = useState(false)
 
   useEffect(() => {
-    onSearchSubmit("python")
-  }, [])
-
-  const onSearchSubmit = async (term) => {
-    setIsLoading(true)
-    const res = await youtube.get("/search", { params: { q: term } })
-    setVideos(res.data.items)
-    setSelectedVideo(res.data.items[0])
-    setIsLoading(false)
-  }
+    setSelectedVideo(videos[0])
+  }, [videos])
 
   if (selectedVideo) {
     return (
       <>
         <div className="ui container">
-          <SearchBar onSearchSubmit={onSearchSubmit} isLoading={isLoading} />
+          <SearchBar onSearchSubmit={setVideos} isLoading={isLoading} />
           <div className="ui grid">
             <div className="ui row">
               <div className="eleven wide column">
