@@ -2,7 +2,7 @@
 
 A live version of this project is available at [search-youtube-videos-with-reactjs.netlify.app](https://search-youtube-videos-with-reactjs.netlify.app/)
 
-![application preview](https://github.com/StephenRoille/project-428016a805-part-1/blob/master/screenshots/preview.png)
+![application preview](https://raw.githubusercontent.com/StephenRoille/project-428016a805-part-1/master/screenshots/preview.png)
 
 # Usage
 
